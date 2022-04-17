@@ -1,5 +1,7 @@
 package baseball.model;
 
+import baseball.utils.ValidationNumberUtils;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -10,8 +12,9 @@ public class Balls {
 
     private final List<Ball> balls;
 
-    public Balls(List<Ball> balls) {
-        this.balls = balls;
+    public Balls(List<Integer> numbers) {
+        validateBalls(numbers);
+        this.balls = getBalls(numbers);
     }
 
     public List<JudgeResult> judge(List<Ball> targetBalls) {
@@ -21,6 +24,26 @@ public class Balls {
             result.add(judge(target));
         }
 
+        return result;
+    }
+
+    private void validateBalls(List<Integer> numbers) {
+        if (numbers.size() != 3) {
+            throw new IllegalArgumentException("only 3 number sizes are allowed");
+        }
+
+        ValidationNumberUtils.validateDuplicate(numbers);
+
+        for (Integer number : numbers) {
+            ValidationNumberUtils.validateRange(number);
+        }
+    }
+
+    private List<Ball> getBalls(List<Integer> numbers) {
+        List<Ball> result = new ArrayList<>();
+        for (int i = 0; i < numbers.size(); i++) {
+            result.add(new Ball(i, numbers.get(i)));
+        }
         return result;
     }
 

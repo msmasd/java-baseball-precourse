@@ -20,13 +20,7 @@ public class PlayerTest {
     @Test
     void 컴퓨터의_3자리_숫자를_지정할_수_있음() {
         assertThat(player.setBalls(Arrays.asList(1, 2, 3))).isEqualTo(
-                new Balls(
-                        Arrays.asList(
-                                new Ball(0, 1),
-                                new Ball(1, 2),
-                                new Ball(2, 3)
-                        )
-                )
+                new Balls(Arrays.asList(1, 2, 3))
         );
     }
 
