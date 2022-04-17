@@ -30,4 +30,17 @@ public class ValidationNumberUtilsTest {
                 .isThrownBy(() -> ValidationNumberUtils.validateDuplicate(Arrays.asList(1, 2, 1)))
                 .withMessage("cannot duplicate");
     }
+
+    @Test
+    void 세자리_숫자_크기에_대한_유효성_검증() {
+        ValidationNumberUtils.validateSize(Arrays.asList(1, 2, 3));
+
+        String exceptionMessage = "only 3 number sizes are allowed";
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> ValidationNumberUtils.validateSize(Arrays.asList(1, 2)))
+                .withMessage(exceptionMessage);
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> ValidationNumberUtils.validateSize(Arrays.asList(1, 2, 3, 4)))
+                .withMessage(exceptionMessage);
+    }
 }

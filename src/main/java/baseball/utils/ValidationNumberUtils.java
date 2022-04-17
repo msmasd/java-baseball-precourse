@@ -8,6 +8,7 @@ public class ValidationNumberUtils {
 
     public static final int MIN_NUMBER = 1;
     public static final int MAX_NUMBER = 9;
+    public static final int NUMBER_SIZE = 3;
 
     public static void validateRange(int number) {
         if (number < MIN_NUMBER || number > MAX_NUMBER) {
@@ -20,6 +21,12 @@ public class ValidationNumberUtils {
 
         if (numbers.size() != numberSet.size()) {
             throw new IllegalArgumentException("cannot duplicate");
+        }
+    }
+
+    public static void validateSize(List<Integer> numbers) {
+        if (numbers.size() != NUMBER_SIZE) {
+            throw new IllegalArgumentException("only 3 number sizes are allowed");
         }
     }
 }

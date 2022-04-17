@@ -13,7 +13,7 @@ public class Balls {
     private final List<Ball> balls;
 
     public Balls(List<Integer> numbers) {
-        validateBalls(numbers);
+        validate(numbers);
         this.balls = getBalls(numbers);
     }
 
@@ -27,11 +27,8 @@ public class Balls {
         return result;
     }
 
-    private void validateBalls(List<Integer> numbers) {
-        if (numbers.size() != 3) {
-            throw new IllegalArgumentException("only 3 number sizes are allowed");
-        }
-
+    private void validate(List<Integer> numbers) {
+        ValidationNumberUtils.validateSize(numbers);
         ValidationNumberUtils.validateDuplicate(numbers);
 
         for (Integer number : numbers) {
