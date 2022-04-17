@@ -9,6 +9,8 @@ import java.util.List;
 
 public class UiService {
 
+    public static final String END_VALUE = "1";
+
     public List<Integer> game() {
         gamePrint();
         return gameInput();
@@ -47,7 +49,7 @@ public class UiService {
         String endValue = Console.readLine();
         ValidationStringUtils.validateEndValue(endValue);
 
-        return "1".equals(endValue);
+        return END_VALUE.equals(endValue);
     }
 
     private void gameEndPrint() {
