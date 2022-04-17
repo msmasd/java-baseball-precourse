@@ -1,13 +1,14 @@
 package baseball.model;
 
-import java.util.List;
-
 public class Player {
 
     private Balls balls;
 
-    public Balls setBalls(List<Integer> numbers) {
-        this.balls = new Balls(numbers);
+    public Balls getBalls() {
         return this.balls;
+    }
+
+    public void setBalls(Balls balls) {
+        this.balls = balls;
     }
 }
