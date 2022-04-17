@@ -4,6 +4,7 @@ import java.util.List;
 
 public class BaseballResult {
 
+    public static final int ALL_STRIKE_COUNT = 3;
     private Integer strikeCount = 0;
     private Integer ballCount = 0;
 
@@ -11,6 +12,10 @@ public class BaseballResult {
         for (JudgeResult judgeResult : judgeResults) {
             calculate(judgeResult);
         }
+    }
+
+    public Boolean isAllStrike() {
+        return strikeCount == ALL_STRIKE_COUNT;
     }
 
     private void calculate(JudgeResult judgeResult) {
@@ -35,7 +40,6 @@ public class BaseballResult {
         if (strikeCount > 0) {
             result.append(strikeCount).append("스트라이크 ");
         }
-
         return result.toString().trim();
     }
 }

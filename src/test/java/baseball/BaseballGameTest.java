@@ -18,12 +18,12 @@ public class BaseballGameTest {
 
     @Test
     void 플레이어에게_3자리_랜덤한_숫자를_지정할_수_있음() {
-        baseballGame.resetBalls();
+        baseballGame.resetBalls(true);
     }
 
     @Test
     void 세자리_수를_받아서_게임결과를_받아볼_수_있다() {
-        baseballGame.resetBalls();
+        baseballGame.resetBalls(true);
         assertThat(baseballGame.game(Arrays.asList(1, 2, 3))).isNotNull();
     }
 }

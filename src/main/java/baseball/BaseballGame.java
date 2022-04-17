@@ -15,8 +15,14 @@ public class BaseballGame {
 
     private final Player player = new Player();
 
-    public void resetBalls() {
-        player.setBalls(createBalls());
+    public BaseballGame() {
+        resetBalls(true);
+    }
+
+    public void resetBalls(Boolean isContinue) {
+        if (Boolean.TRUE.equals(isContinue)) {
+            player.setBalls(createBalls());
+        }
     }
 
     public BaseballResult game(List<Integer> numbers) {
