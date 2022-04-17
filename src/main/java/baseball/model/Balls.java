@@ -17,10 +17,10 @@ public class Balls {
         this.balls = getBalls(numbers);
     }
 
-    public List<JudgeResult> judge(List<Ball> targetBalls) {
+    public List<JudgeResult> judge(Balls balls) {
         List<JudgeResult> result = new ArrayList<>();
 
-        for (Ball target : targetBalls) {
+        for (Ball target : balls.balls) {
             result.add(judge(target));
         }
 
