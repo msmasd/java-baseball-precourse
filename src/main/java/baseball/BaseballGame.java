@@ -1,6 +1,8 @@
 package baseball;
 
 import baseball.model.Balls;
+import baseball.model.BaseballResult;
+import baseball.model.JudgeResult;
 import baseball.model.Player;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -15,6 +17,11 @@ public class BaseballGame {
 
     public void resetBalls() {
         player.setBalls(createBalls());
+    }
+
+    public BaseballResult game(List<Integer> numbers) {
+        List<JudgeResult> judgeResults = player.game(new Balls(numbers));
+        return new BaseballResult(judgeResults);
     }
 
     private Balls createBalls() {
